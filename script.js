@@ -1,36 +1,39 @@
 'use strict';
 
+// HW1. По темі ‘Масиви в деталях’
 
-const userNames = ["Петрик Ольга Іванівна", "Гнатюк Петро Антонович", "Рудко Андрій Опанасович"];
-let initials;
+// Задача на повернення ініціалів для кожного імені з масиву, посортованих в алфавітному порядку:
 
-initials = userNames.map((userName) => 
-    userName.split(" ").map((w) => w.substring(0,1).toUpperCase() + '.' ).join(' ')
-).sort();
+// const userNames = ["Петрик Ольга Іванівна", "Гнатюк Петро Антонович", "Рудко Андрій Опанасович"];
+// let initials;
 
-console.log(initials); // [ "Г.П.А.", "П.О.І.", "Р.А.О."]
+// initials = userNames.map((userName) => 
+//     userName.split(" ").map((w) => w.substring(0,1).toUpperCase() + '.' ).join(' ')
+// ).sort();
 
-
-
-const currentMaxValue = 4589;
-let reverseMaxValue;
-
-reverseMaxValue = currentMaxValue.toString().split("").reverse().join('');
-reverseMaxValue = Number(reverseMaxValue);
-
-console.log(reverseMaxValue); // 9854
-console.log(typeof reverseMaxValue); // 'number'
+// console.log(initials); // [ "Г.П.А.", "П.О.І.", "Р.А.О."]
 
 
+// Задача на розворот числа:
 
+// const currentMaxValue = 4589;
+// let reverseMaxValue;
+
+// reverseMaxValue = currentMaxValue.toString().split("").reverse().join('');
+// reverseMaxValue = Number(reverseMaxValue);
+
+// console.log(reverseMaxValue); // 9854
+// console.log(typeof reverseMaxValue); // 'number'
+
+
+
+// Задача на знаходження добутку масиву чисел з невідомою глибиною вкладеності:
 
 const resultsArray = [1, 2, [3, [4]]];
 let productOfArray;
 
-productOfArray = 1;
-
-for (let i = 0; i < resultsArray.flat(2).length; i++) {
-    productOfArray = productOfArray * resultsArray.flat(2) [i];
-}
+productOfArray = resultsArray.flat(Infinity).reduce(function(a, b) {
+    return a * b;
+});
 
 console.log(productOfArray); // 24
