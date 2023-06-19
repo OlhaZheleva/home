@@ -7,17 +7,15 @@
 // Задача про обчислення різниці часу
 
 function durationBetweenDates (start, end, dimension ) {
-    if (dimension == 'days') {
-        return Math.abs(Date.parse(end) - Date.parse(start))/(24 * 60 * 60 * 1000) + " " + 'days' ;
-    }
-    if (dimension == 'hours') {
-        return Math.abs(Date.parse(end) - Date.parse(start))/(60 * 60 * 1000) + " " + 'hours' ;
-    }
-    if (dimension == 'minutes') {
-        return Math.abs(Date.parse(end) - Date.parse(start))/(60 * 1000) + " " + 'minutes' ;
-    }
-    if (dimension == 'seconds') {
-      return Math.abs(Date.parse(end) - Date.parse(start))/1000 + " " + 'seconds' ;
+    switch(dimension) {
+        case ('days'): 
+            return Math.abs(Date.parse(end) - Date.parse(start))/(24 * 60 * 60 * 1000) + " " + 'days' ;
+        case ('hours'): 
+            return Math.abs(Date.parse(end) - Date.parse(start))/(60 * 60 * 1000) + " " + 'hours' ;
+        case ('minutes'): 
+            return Math.abs(Date.parse(end) - Date.parse(start))/(60 * 1000) + " " + 'minutes' ; 
+        case ('seconds'): 
+        return Math.abs(Date.parse(end) - Date.parse(start))/1000 + " " + 'seconds' ; 
     }
 }
 
@@ -52,9 +50,9 @@ console.log(updatedPriceData)  // {apples: '23.40', bananas: '48.00', oranges: '
 // — функцію яка рекурсивно буде знаходити суму всіх непарних додатних чисел до якогось числа.
 
 function recursiveOddSumTo(number) {
-    if (number == 1) return 1;
+    if (number === 1) return 1;
 
-    if (number % 2 != 0) {
+    if (number % 2 !== 0) {
       return (number) + recursiveOddSumTo(number - 1);
     }
     else {
@@ -73,7 +71,7 @@ console.log(recursiveOddSumTo(10)) // 25
 function iterativeOddSumTo(number) {
     let sum = 0;
     for (let i = 1; i <= number; i++) {
-        if( i % 2 != 0)   {
+        if( i % 2 !== 0)   {
             sum += i;
         }     
       }
