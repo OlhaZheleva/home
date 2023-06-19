@@ -7,16 +7,17 @@
 // Задача про обчислення різниці часу
 
 function durationBetweenDates (start, end, dimension ) {
-    switch(dimension) {
-        case ('days'): 
-            return Math.abs(Date.parse(end) - Date.parse(start))/(24 * 60 * 60 * 1000) + " " + 'days' ;
-        case ('hours'): 
-            return Math.abs(Date.parse(end) - Date.parse(start))/(60 * 60 * 1000) + " " + 'hours' ;
-        case ('minutes'): 
-            return Math.abs(Date.parse(end) - Date.parse(start))/(60 * 1000) + " " + 'minutes' ; 
-        case ('seconds'): 
-        return Math.abs(Date.parse(end) - Date.parse(start))/1000 + " " + 'seconds' ; 
-    }
+        let result = Math.abs(Date.parse(end) - Date.parse(start));
+        switch(dimension) {
+            case ('days'): 
+                return result/(24 * 60 * 60 * 1000) + " " + 'days' ;
+            case ('hours'): 
+                return result /(60 * 60 * 1000) + " " + 'hours' ;
+            case ('minutes'): 
+                return result/(60 * 1000) + " " + 'minutes' ; 
+            case ('seconds'): 
+                return result/1000 + " " + 'seconds' ; 
+        }
 }
 
 console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds')); // поверне '86400 seconds'
@@ -53,7 +54,7 @@ function recursiveOddSumTo(number) {
     if (number === 1) return 1;
 
     if (number % 2 !== 0) {
-      return (number) + recursiveOddSumTo(number - 1);
+      return number + recursiveOddSumTo(number - 1);
     }
     else {
        return recursiveOddSumTo(number - 1);;
