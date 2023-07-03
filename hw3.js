@@ -6,7 +6,9 @@
 
 function addThemAll (...args) {
     let sum = 0;
-    for (let arg of args) sum += arg;
+    for (let arg of args) {
+      sum += arg
+    };
     return sum;
 }
 
@@ -68,13 +70,10 @@ const movies = [
   function byProperty(property, direction) {
     return (a, b) =>
     {
-      switch(direction)
-      {
-        case ">":
-          return a[property] > b[property] ? 1 : -1;
-          
-          case "<":
-            return a[property] < b[property] ? 1 : -1;  
+      if (direction === '>') { 
+        return a[property] > b[property] ? 1 : -1;
+      } else {
+        return a[property] < b[property] ? 1 : -1;
       }
     } 
   }
@@ -182,10 +181,7 @@ function someFunction (userName) {
 function slower(func, seconds) {
   return function(...args) {
     console.log('Chill out, you will get you result in 5 seconds');
-    let savedThis = this; // зберігаємо this в проміжну змінну
-    setTimeout(function() {
-      func.apply(savedThis, args); // використовуємо її тут
-    }, seconds * 1000);
+    setTimeout(() => func.apply(this, args), seconds * 1000);
   };
 }
 
