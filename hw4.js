@@ -9,8 +9,8 @@ console.log(navigation);
 
 
 //     - для першого елементу <section>
-
-let firstChildSection = document.body.querySelector('.firstSection').firstElementChild;
+let section = document.getElementsByTagName('section')[0];
+let firstChildSection = section.firstElementChild;
 console.log(firstChildSection);
 
 
@@ -18,19 +18,13 @@ console.log(firstChildSection);
 // //     - для елементу списку з текстом 'Пункт 5'
 // тут довелось шукати рішення в інеті, сама не зразу зрозуміла 
 
-let text = 'Пункт 5';
-let points = document.getElementsByTagName('li');
-
-for (let i = 0; i < points.length; i++) {
-    if (points[i].textContent == text) {
-      console.log(points[i]);
-      break;
-    }
-  }
+let list = document.querySelector('li');
+let lastChild = list.closest('ul').lastElementChild;
+console.log(lastChild.previousElementSibling);
 
 
 //     - для елементу з класом 'hatredLevelBlock'
-const hatredLevelBlock = document.querySelector('.hatredLevelBlock');
+const hatredLevelBlock = document.getElementsByClassName('hatredLevelBlock');
 console.log(hatredLevelBlock);
 
 //     Кожен селектор має бути унікальним (тобто всі мають бути створені за допомогою 

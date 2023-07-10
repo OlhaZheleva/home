@@ -27,7 +27,6 @@ body {
 }
 
 .button {
-    background: #6E29FF;
     border-bottom: 2px solid #000;
     border-radius: 100px;
     height: 55px;
@@ -40,6 +39,7 @@ body {
     color: #fff;
     max-width: 300px;
     cursor: pointer;
+    background-color: #FF6B00;
 }
 
 /* .button:hover { 
@@ -47,9 +47,12 @@ body {
 } */
 
 .dark { 
-    background-color: rgba(0,0,0, 0.8);;
+    background-color: rgba(0,0,0, 0.8);
 }
 
+.purple { 
+    background-color: #6E29FF;
+}
 
 .last-turn { 
     font-size: 30px;
