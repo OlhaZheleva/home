@@ -9,12 +9,9 @@ let theme = localStorage.getItem('theme');
 
 
 // запуск сторінки (перше відкритта або перезавантаження)
-
 if (theme === 'dark') { // якщо в нас темна тема, а дефолтна світла, то значить і є змінна коли було перемикання теми 
-    wrapperBackground.classList.add('dark');
-    btnTurn.textContent = 'Turn on'; 
+    turnOnDarkTheme();
     lastChangeText.innerHTML = `<p>Last turn off: <br> ${lastChangeTime}</p>`;
-    btnTurn.classList.add('purple');
 };
 if (theme !== null) {
     lastChangeText.innerHTML = `<p>Last turn on: <br> ${lastChangeTime} </p>`; // якщо світла тема, то перевірити чи було перемикання до цього 
@@ -23,25 +20,33 @@ if (theme !== null) {
 };
 
 
+// увімкнення світлої теми  
+function turnOnLightTheme() {
+    wrapperBackground.classList.remove('dark');
+    btnTurn.classList.remove('purple'); 
+    btnTurn.textContent = 'Turn off';
+}; 
+
+// увімкнення темної теми 
+function turnOnDarkTheme() { 
+    wrapperBackground.classList.add('dark');
+    btnTurn.classList.add('purple'); 
+    btnTurn.textContent = 'Turn on';
+    
+};
+
+// перемикання тем кнопкаю 
 btnTurn.addEventListener('click' , function () { 
-
     if ( wrapperBackground.classList.contains('dark')) { // якщо тема вже темна, увімкнути світлу тему + змінити кнопку
-        wrapperBackground.classList.remove('dark');
-        btnTurn.classList.remove('purple'); 
-        btnTurn.textContent = 'Turn off';
+        turnOnLightTheme(); 
         localStorage.setItem('theme', 'light');
-
     } else { // якщо тема світла, то увімкнути темну  + зніми стилі кнопки 
-        wrapperBackground.classList.add('dark');
-        btnTurn.classList.add('purple'); 
-        btnTurn.textContent = 'Turn on';
+        turnOnDarkTheme();
         localStorage.setItem('theme', 'dark');
     }
-
     let lastChangeTime = new Date().toLocaleString(); // записати час дії, тобто кліку по кнопці у локал 
     lastChangeText.innerHTML = `<p>Last turn off: <br> ${lastChangeTime}</p>`;
     localStorage.setItem('lastChange', lastChangeTime); 
-
 });
 
 
