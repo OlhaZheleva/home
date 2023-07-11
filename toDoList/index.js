@@ -147,7 +147,7 @@ function removeTaskFromLocalStorage(taskToRemove) {
     // Проходимо по масиву задач і видаляємо необхідну
     tasks.forEach((task, index) => {
         if (taskToRemove.textContent === task) {
-            tasks.splice(index, 1)
+            tasks.splice(index , 1);
         }
     })
 
