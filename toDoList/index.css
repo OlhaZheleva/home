@@ -127,6 +127,8 @@ li {
         flex-direction: column;
         gap: 30px;
         padding: 30px 10px;
+        width: 100%;
+        text-align: center;
     }
     .create-task-block,
     .filter-task-block {
@@ -136,6 +138,14 @@ li {
     h3 { 
         font-size: 25px;
         line-height: 30px;
+    }
+    ul  { 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    input,
+    button { 
+        max-width: none;
     }
 
 }

@@ -54,6 +54,17 @@ function createSingleTaskElement(task) {
     // Додаємо елемент в елемент списку
     li.appendChild(deleteElement);
 
+
+    // обгортка для іконки редагування задачі
+    const editElement = document.createElement('span');
+    // додаємо елементу клас
+    editElement.className = 'edit-item';
+    // додаємо іконку
+    editElement.innerHTML = '<i class="fa fa-edit"></i>';
+    // додаємо до створеної задачі редагування
+    li.appendChild(editElement);
+
+
     // Додаємо елемент списку в список задач
     taskList.appendChild(li);
 }
@@ -148,9 +159,53 @@ function removeTaskFromLocalStorage(taskToRemove) {
     tasks.forEach((task, index) => {
         if (taskToRemove.textContent === task) {
             tasks.splice(index , 1);
+            
         }
+    
     })
 
     // Записуємо оновлений масив в localStorage
     setTasksToLocalStorage(tasks);
 }
+
+
+// /**
+//  * додати можливість редагування 
+//  * @param {Event} event
+//  */
+// function editSingleTask(event) {
+//     // Отримуємо батьківський елемент елементу на якому була подія кліку
+//     const iconContainer = event.target.parentElement;
+
+//     // Якщо батьківський елемент має відповідний клас
+//     if (iconContainer.classList.contains('delete-item')) {
+//         // Отримуємо підтвердження користувача
+//         if (confirm('Ви впевнені що хочете видалити цю задачу?')) {
+//             // Видаляємо елемент з DOM та з localStorage
+//             iconContainer.parentElement.remove();
+//             removeTaskFromLocalStorage(iconContainer.parentElement);
+//         }
+//     }
+// }
+
+
+// /**
+//  * Редагування задачі у DOM 
+//  * @param taskToEdit - DOM елемент
+//  */
+
+// function editTaskInLocalStorage(taskToEdit) {
+//     // Отримуємо поточні задачі з localStorage
+//     const tasks = getTasksFromLocalStorage();
+
+//     // Проходимо по масиву задач і видаляємо необхідну
+//     tasks.forEach((task, index) => {
+//         if (taskToRemove.textContent === task) {
+            
+            
+//         }
+//     })
+
+//     // Записуємо оновлений масив в localStorage
+//     setTasksToLocalStorage(tasks);
+// }
