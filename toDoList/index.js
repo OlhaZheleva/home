@@ -12,6 +12,7 @@ const form = document.querySelector('.create-task-form');
 /**
  * Створюємо слухачі на необхідні нам події
  */
+
 document.addEventListener('DOMContentLoaded', renderTasks);
 clearBtn.addEventListener('click', clearAllTasks);
 taskList.addEventListener('click', clearSingleTask);
