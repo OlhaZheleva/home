@@ -97,6 +97,7 @@ class Tesla extends Car {
   charge() {
       console.log("Charging...");
   }
+  
 }
 
 
