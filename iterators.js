@@ -61,21 +61,16 @@
 // кількість рандомних чисел які функція повертає:
 
 
-function* generateRandomNumbers (max)  {
+function* generateRandomNumbers(max, quantity) {
 
-  for (let i = 0; i <= max; i++) {
-    yield i;
+  for (let i = 0; i < quantity; i++) {
+    yield Math.floor(Math.random() * max);
   }
 
-  return console.log (Math.floor(Math.random() * max));
 }
 
-// тут виклик та ітерування в циклі
-
-
-
-let sequence = generateRandomNumbers(10);
-
-for(let value of sequence) {
-  console.log(value); // 1, затем 2
+for (const num of generateRandomNumbers(8, 17)) {
+  console.log(num);
 }
+
+
